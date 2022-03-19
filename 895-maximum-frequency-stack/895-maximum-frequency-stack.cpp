@@ -16,7 +16,7 @@ public:
     int pop() {
         int num = m1[maxf].top();
         m1[maxf].pop();
-        if(!m1[m[num]--].size())
+        if(m1[m[num]--].empty())
         {
             maxf--;
         }
