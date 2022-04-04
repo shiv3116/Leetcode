@@ -11,22 +11,25 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        vector<int> arr;
         ListNode *tmp = head;
+        int len = 0;
         while(tmp!=NULL)
         {
-            arr.push_back(tmp->val);
+            len++;
             tmp = tmp->next;
         }
-        swap(arr[k-1],arr[arr.size()-k]);
-        ListNode *newHead = new ListNode(arr[0]);
-        tmp = newHead;
-        for(int i=1;i<arr.size();i++)
+        tmp = head;
+        for(int i=1;i<k;i++)
         {
-            ListNode *t = new ListNode(arr[i]);
-            tmp->next = t;
             tmp = tmp->next;
         }
-        return newHead;
+        ListNode *n1 = tmp;
+        tmp = head;
+        for(int i=1;i<=len-k;i++)
+        {
+            tmp = tmp->next;
+        }
+        swap(n1->val,tmp->val);
+        return head;
     }
 };
