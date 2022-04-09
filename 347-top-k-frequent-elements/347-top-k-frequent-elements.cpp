@@ -1,9 +1,5 @@
 class Solution {
 public:
-    static bool cmp(pair<int,int> &a, pair<int,int> &b)
-    {
-        return a.second>b.second;
-    }
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int,int> m;
         vector<int> ans;
@@ -11,15 +7,16 @@ public:
         {
             m[nums[i]]++;
         }
-        vector<pair<int,int>> arr;
+        priority_queue<pair<int,int>> pq;
         for(auto x:m)
         {
-            arr.push_back({x.first,x.second});
+            pq.push({x.second,x.first});
         }
-        sort(arr.begin(),arr.end(),cmp);
-        for(int i=0;i<k;i++)
+        while(k!=0)
         {
-            ans.push_back(arr[i].first);
+            ans.push_back(pq.top().second);
+            pq.pop();
+            k--;
         }
         return ans;
     }
