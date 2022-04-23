@@ -7,7 +7,7 @@ public:
         srand(time(0));
         for(int i=0;i<2;i++)
         {
-            s += to_string(rand());
+            s += to_string(rand()%10);
         }
         string st = "";
         int ind;
