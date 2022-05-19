@@ -24,7 +24,7 @@ public:
     int longestIncreasingPath(vector<vector<int>>& matrix) {
         int n = matrix.size(), m = matrix[0].size();
         map<pair<int,int>,int> dp;
-        int ans;
+        // int ans;
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
@@ -32,10 +32,10 @@ public:
                ans = max(ans,dfs(i,j,dp,-1,n,m,matrix));
             }
         }
-        for(auto x:dp)
-        {
-            cout<<x.second<<" ";
-        }
+        // for(auto x:dp)
+        // {
+        //     // cout<<x.second<<" ";
+        // }
         return ans;
     }
 };
