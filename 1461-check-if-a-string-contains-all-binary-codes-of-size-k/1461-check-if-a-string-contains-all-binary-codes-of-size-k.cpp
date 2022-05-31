@@ -7,7 +7,6 @@ public:
             return false;
         for(int i=0;i<(s.size()-k+1);i++)
         {
-            // cout<<s.substr(i,k)<<" ";
             m[s.substr(i,k)]++;
         }
         if(m.size()==total)
