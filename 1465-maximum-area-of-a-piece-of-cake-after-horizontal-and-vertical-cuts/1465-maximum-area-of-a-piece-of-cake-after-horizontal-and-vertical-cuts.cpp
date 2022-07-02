@@ -15,10 +15,8 @@ public:
         for(int i=0;i<verticalCuts.size()-1;i++)
         {
             width = max(width,verticalCuts[i+1]-verticalCuts[i]);
-            // cout<<width<<'\n';
         }
         width = max(width,w-verticalCuts[verticalCuts.size()-1]);
-        // cout<<height<<" "<<width;
         return ((height%mod)*(width%mod))%mod;
     }
 };
