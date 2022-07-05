@@ -3,15 +3,29 @@ public:
     int longestConsecutive(vector<int>& num) {
         if(num.size()==0)
             return 0;
-        sort(num.begin(),num.end());
-        int ans = 0,c = 1;
-        vector<int> nums;
+        priority_queue<int,vector<int>, greater<int>> pq;
         for(int i=0;i<num.size();i++)
         {
+            pq.push(num[i]);
+        }
+        int ans = 0,c = 1;
+        vector<int> nums;
+        while(!pq.empty())
+        {
             if(nums.empty())
-                nums.push_back(num[i]);
-            else if(nums.back()!=num[i])
-                nums.push_back(num[i]);
+            {
+                nums.push_back(pq.top());
+                pq.pop();
+            }
+            else if(nums.back()!=pq.top())
+            {
+                nums.push_back(pq.top());
+                pq.pop();
+            }
+            else
+            {
+                pq.pop();
+            }
         }
         for(int i=0;i<nums.size();i++)
         {
