@@ -3,28 +3,22 @@ public:
     int longestConsecutive(vector<int>& num) {
         if(num.size()==0)
             return 0;
-        priority_queue<int,vector<int>, greater<int>> pq;
+        set<int> pq;
         for(int i=0;i<num.size();i++)
         {
-            pq.push(num[i]);
+            pq.insert(num[i]);
         }
         int ans = 0,c = 1;
         vector<int> nums;
-        while(!pq.empty())
+        for(int x:pq)
         {
             if(nums.empty())
             {
-                nums.push_back(pq.top());
-                pq.pop();
+                nums.push_back(x);
             }
-            else if(nums.back()!=pq.top())
+            else if(nums.back()!=x)
             {
-                nums.push_back(pq.top());
-                pq.pop();
-            }
-            else
-            {
-                pq.pop();
+                nums.push_back(x);
             }
         }
         for(int i=0;i<nums.size();i++)
