@@ -9,24 +9,19 @@ class Solution{
     long long int minSum(int arr[], int n)
     {
         // Your code goes here
-        priority_queue<int,vector<int>,greater<int>> pq;
-        for(int i=0;i<n;i++)
-        {
-            pq.push(arr[i]);
-        }
+        sort(arr,arr+n);
         long long int num1 = 0, num2 = 0;
         int i = 1;
-        while(!pq.empty())
+        while(i<=n)
         {
             if(i & 1)
             {
-                num1 = (num1*10)+pq.top();
+                num1 = (num1*10)+arr[i-1];
             }
             else
             {
-                num2 = (num2*10)+pq.top();
+                num2 = (num2*10)+arr[i-1];
             }
-            pq.pop();
             i++;
         }
         return (num1+num2);
