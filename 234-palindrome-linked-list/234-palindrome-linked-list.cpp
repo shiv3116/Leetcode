@@ -43,9 +43,7 @@ public:
         {
             tmp = tmp->next;
         }
-        // cout<<tmp->val;
         tmp = reverse(tmp);
-        // cout<<tmp->val;
         ListNode* t = head;
         while(tmp!=NULL)
         {
