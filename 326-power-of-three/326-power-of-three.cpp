@@ -9,7 +9,7 @@ public:
         {
             return true;
         }
-        int x = log2(n)/log2(3);
+        int x = log10(n)/log10(3);
         int num = (int)(pow(3,x));
         return num==n;
     }
