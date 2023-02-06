@@ -12,14 +12,7 @@ public:
         vector<int> nums;
         for(int x:pq)
         {
-            if(nums.empty())
-            {
-                nums.push_back(x);
-            }
-            else if(nums.back()!=x)
-            {
-                nums.push_back(x);
-            }
+            nums.push_back(x);
         }
         for(int i=0;i<nums.size();i++)
         {
